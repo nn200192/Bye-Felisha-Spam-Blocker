@@ -1,0 +1,19 @@
+import java.io.*;    // for File
+import java.util.*;  // for Scanner
+
+public class ByeFelisha{
+
+  File areaCode = new File("areaCode.txt"); //list of area codes and the U.S. state associated with the code
+  File database = new File("database.txt"); //create a new file and will output scam numbers from blacklist to this file
+  PrintStream database = new PrintStream(database); 
+  ArrayList<> AREA_CODE = new ArrayList<String>(); //will push all the area codes from text file to this arraylist
+
+
+//adding scam phone numbers from blacklist to database
+public static void addScamNumber (String file){
+  Scanner input = new Scanner(new File(file));//this function will take in the area code 
+  while(input.hasNextInt()){
+   String area = input.nextInt();
+   AREA_CODE.add(area);  // adding all the area codes from text file to the arrayList
+  }
+ 
