@@ -18,7 +18,12 @@ public class ByeFelishaMainProgram{
 
 //here is our class
 public class ByeFelisha {
-    	//SHashank
+	/// constructor////////
+	    public ByeFelisha() //constructor for Shasak to set up username and stuffs
+    {
+    }
+    	//SHashank /// SHASHANK ////
+	//////////////////////////////
 	public static void Prompt() {
 		
 		Scanner sc = new Scanner(System.in);
@@ -180,12 +185,54 @@ public class ByeFelisha {
 				"supersedes all prior understandings of Licensor and Licensee, including any prior representation,\r\n" + 
 				"statement, condition, or warranty with respect to the subject matter of this EULA.\r\n" + 
 				"");
-	}//Shashank
+	}// END SHASHANK /// // //
+	////////////////////////
     
-    public ByeFelisha() //constructor for Shasak to set up username and stuffs
-    {
-    }
 
+    // // LIANE CODE /////////
+	////////////////////////////
+   // Author: vw-liane
+
+// METHOD 
+// Description: Within ByeFelisha program system, when user chooses option 4
+//  (see <sketch-of-program.txt>) "Display Blocked Calls", program reads file
+//  created by usecase1. The file name to read is:  <user_log_blocked_calls.txt>
+
+import java.nio.file.*;
+import java.io.*;
+import java.util.stream.Stream;
+import java.util.*;  
+
+class usecase5 
+{
+    // number of calls blocked from calling user
+    static int numBlock = 0; 
+    public static void main(String[] args) throws IOException
+    {
+        // find file with list of user blocked calls
+        Path path1 = Paths.get("user_log_blocked_calls.txt");
+
+        // try opening file
+        try (Stream<String> content = Files.lines(path1))
+        {
+            // do stuff with each line
+            content.forEach((String line) -> 
+            {
+                numBlock++;
+                System.out.println(line);
+            } // END CONTENT.FOREACH
+            );
+            System.out.println("These phone numbers have been blocked "
+                    + "from calling you.");
+            System.out.println("\nYou have a total of " + numBlock
+                    " blocked calls.");
+        }// END TRY STREAM   
+    } // END MAIN-USECASE-five
+
+
+
+} // // END LIANE CODE /// /////
+	////////////////////////////
     
     //THIS NHI NANCY'S CODE
     //adding scam phone numbers from blacklist to database
