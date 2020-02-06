@@ -23,6 +23,8 @@ public class ByeFelisha {
     {
     }
 
+    
+    //THIS NHI NANCY'S CODE
     //adding scam phone numbers from blacklist to database
     public void addScamNumber(Scanner input, List<String> AREA_CODE, List<String> SCAM_NUMBER) {
         while (input.hasNext()) {
@@ -46,7 +48,7 @@ public class ByeFelisha {
         }
     }
     
-    
+    //THIS IS THE END OF NANCY'S CODE
     
 }
  
