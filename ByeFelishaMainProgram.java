@@ -44,9 +44,9 @@ public class ByeFelisha {
             }
             SCAM_NUMBER.add(numberGenerated); //add the full 9-digit number to this list, this is considered the database blacklist we are going to use
         }
-
-
-
     }
+    
+    
+    
 }
  
