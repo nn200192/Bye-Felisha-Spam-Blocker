@@ -1,0 +1,36 @@
+Sketch of Program::
+ 
+ 
+Program begins, runs, to create generic list of scam numbers* and 
+blacklist*.  (USECASE-4 implemented in background)
+
+USER MENU: 
+**NOTE--these options are not the usecases, but just options
+for the user.**
+((MANDATORY: User first must choose to register
+          their phone number.))
+		  
+	Option 1: Register Phone Number
+				(here run USECASE-2 of entering phone number,
+				prompts (Y/N) if user agrees to license/privacy agreement 
+				& if allow settings access to phone-calling-abilities)
+	Option 2: Run 'receive random calls' 
+						(**this 'receive random calls' is a background 
+						process not associated with any one usecase**)
+				(within this option is USECASE-1 of checking if on blacklist
+				---if on blacklist (created by USECASE-4), USECASE-1 adds 
+					 this number to user's file of:
+				:::: <user_log_blocked_calls.txt>---this file usecase-5 will use 
+				      to display info to user)
+					  --- @jdaniel, can this format be just a 7-digits on each line?
+	Option 3: Report Spam Phone Number
+				(here USECASE-3 is implemented to add number to this file: 
+				:::: <global_spam_call_log.csv> ... this file is the same file
+				     created by USECASE-4 in the beginning of generic scam numbers
+				(maybe file-column format something like:
+				:::: "user_num,spam_num,num_times_received"?
+				----each separated by comma)
+	Option 4: Display Blocked Calls
+				(here USECASE-5 opens and reads <user_log_blocked_calls.txt>
+				---reads and displays line by line
+				---if empty, says so to user
