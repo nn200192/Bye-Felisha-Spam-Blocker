@@ -286,7 +286,7 @@ class usecase5
     public void addScamNumber(Scanner input, List<String> AREA_CODE, List<String> SCAM_NUMBER) {
         while (input.hasNext()) {
             if (input.hasNextInt()) {
-                String area = input.nextInt();
+                String area = String.valueOf(input.nextInt());
                 AREA_CODE.add(String.valueOf(area));
             } // adding all the area codes from text file to the arrayList AREA_CODE
             else input.next();
@@ -297,7 +297,7 @@ class usecase5
             int randomArea = rand.nextInt(AREA_CODE.size()); //random from 0-the number of area codes available
             String numberGenerated = "";
             numberGenerated = numberGenerated + AREA_CODE.get(randomArea); //choose a random area code
-            for (int i = 0; i < 7; i++) {  //generate 7 digit number following after area code
+            for (int j = 0; j < 7; j++) {  //generate 7 digit number following after area code
                 int randomNumber = rand.nextInt(10);  //random from 0-9
                 numberGenerated = numberGenerated + String.valueOf(randomNumber);
             }
