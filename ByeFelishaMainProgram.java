@@ -4,13 +4,15 @@ import java.util.*;  // for Scanner
 
 //here is our main program
 public class ByeFelishaMainProgram{
-    public static void main(String[] args){
-        File areaCode = new File("areaCode.txt"); //list of area codes and the U.S. state associated with the code
-        File database = new File("database.txt"); //create a new file and will output scam numbers from blacklist to this file
-        PrintStream database = new PrintStream(database);
+    public static void main(String[] args) throws FileNotFoundException {
+        File areaCode = new File("areaCode2.txt"); //list of area codes and the U.S. state associated with the code
+        Scanner input = new Scanner (areaCode);
         List<String> AREA_CODE = new ArrayList<>(); //will push all the area codes from text file to this arraylist
         List<String> SCAM_NUMBER = new ArrayList<>(); //this list will hold all the random scam phone numbers
 
+        
+        ByeFelisha byeFelisha = new ByeFelisha();
+        byeFelisha.addScamNumber(input, AREA_CODE, SCAM_NUMBER);
     }
         }
 
