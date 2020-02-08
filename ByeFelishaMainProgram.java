@@ -1,32 +1,99 @@
 import java.io.*;    // for File
 import java.util.*;  // for Scanner
-
+import java.nio.file.*;
+import java.util.stream.Stream;  // Import the File class
+import java.io.FileNotFoundException;  // Import this class to handle errors
+import java.util.Scanner; // Import the Scanner class to read text files
 
 //here is our main program
 public class ByeFelishaMainProgram{
     public static void main(String[] args) throws FileNotFoundException {
-        File areaCode = new File("areaCode2.txt"); //list of area codes and the U.S. state associated with the code
+        
+    	File areaCode = new File("areaCode2.txt"); //list of area codes and the U.S. state associated with the code
         Scanner input = new Scanner (areaCode);
         List<String> AREA_CODE = new ArrayList<>(); //will push all the area codes from text file to this arraylist
         List<String> SCAM_NUMBER = new ArrayList<>(); //this list will hold all the random scam phone numbers
 
+        UseCase1 byeFelisha1 = new UseCase1();
+        byeFelisha1.method1();
         
-        ByeFelisha byeFelisha = new ByeFelisha();
-        byeFelisha.addScamNumber(input, AREA_CODE, SCAM_NUMBER);
+        UseCase2 byeFelisha2 = new UseCase2();
+        byeFelisha2.Felisha();
+        byeFelisha2.Prompt();
+        byeFelisha2.Policy();
+        
+        //UseCase3 byeFelisha3 = new UseCase3();
+        
+        
+        UseCase4 byeFelisha4 = new UseCase4();
+        byeFelisha4.addScamNumber(input, AREA_CODE, SCAM_NUMBER);
+        
+        UseCase5 byeFelisha5 = new UseCase5();
+        byeFelisha5.method5();
     }
-        }
+}
 
 
+//THIS IS JENCIE'S CODE (BEGINNING) ------------------------------------------------------------------------------------------------
+  /*
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
+//package callblockermine1;
 
-//here is our class
-public class ByeFelisha {
-	/// constructor////////
-	    public ByeFelisha() //constructor for Shasak to set up username and stuffs
+/**
+*
+* @author jencd
+*/
+class UseCase1{
+	public void method1()throws FileNotFoundException, IOException
     {
+		String string;
+		int lineNumber = 0;
+		int phoneNumber;
+    
+		// TODO code application logic here
+		File file = new File("Numbers.txt");
+    
+		BufferedReader reader = new BufferedReader(new FileReader(file));
+   
+		while ((string = reader.readLine()) != null)
+		{
+           lineNumber++;
+        }
+        Scanner input = new Scanner(System.in);
+        Scanner sc = new Scanner(file); 
+        
+        System.out.println("");
+        System.out.print("Enter the phone number to check if it is a spam number that is our system: ");
+        int number = input.nextInt();
+        
+        int x = 3;
+        int counter = 0;
+
+        // Read all the numbers in the file, and count how many times x appears.
+        // while(sc.hasNextInt()) 
+    
+        int list = sc.nextInt();
+        if(list == number)
+        {
+            System.out.println("Call is a scam. Call Blocked.");
+        }
+        
+        else if (list != number)
+        {
+            System.out.println("Number is not in the system, call is not blocked.");
+        }
+                
     }
-    	//SHashank /// SHASHANK ////
-	//////////////////////////////
-	public static void Prompt() {
+}
+//THIS IS THE END OF JENCIE'S CODE--------------------------------------------------------------------------------------------
+
+/// SHASHANK ////
+//////////////////////////////
+class UseCase2 {
+	public void Prompt() {
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -34,11 +101,10 @@ public class ByeFelisha {
 		System.out.print("\nPlease enter your name: ");
 		String name = sc.nextLine();
 		System.out.print("Please enter your phone number: ");
-		 long num = sc.nextLong();
-		
-		
+		long num = sc.nextLong();
 	}
-	static void Felisha() {
+	
+	public void Felisha() {
 		System.out.println("  		     ██╗██████╗ ██╗   ██╗███████╗    ███████╗███████╗██╗     ██╗███████╗██╗  ██╗ █████╗ ██╗██╗██╗                   \r\n" + 
 				"                    ██╔╝██╔══██╗╚██╗ ██╔╝██╔════╝    ██╔════╝██╔════╝██║     ██║██╔════╝██║  ██║██╔══██╗██║██║╚██╗                  \r\n" + 
 				"                    ██║ ██████╔╝ ╚████╔╝ █████╗      █████╗  █████╗  ██║     ██║███████╗███████║███████║██║██║ ██║                  \r\n" + 
@@ -56,7 +122,8 @@ public class ByeFelisha {
 				"                                                                                                                                    \r\n" + 
 				"                                                                                          ");
 	}
-	static void Thanks() {
+	
+	public void Thanks() {
 		System.out.println("  _____ _   _    _    _   _ _  __ __   _____  _   _  \r\n" + 
 				" |_   _| | | |  / \\  | \\ | | |/ / \\ \\ / / _ \\| | | | \r\n" + 
 				"   | | | |_| | / _ \\ |  \\| | ' /   \\ V / | | | | | | \r\n" + 
@@ -65,7 +132,7 @@ public class ByeFelisha {
 				"                                                     ");
 	}
 	
-	static void Policy() {
+	public void Policy() {
 		Scanner in = new Scanner(System.in);
 
 		System.out.println("\n\n\t\t\tTO VIEW OUR USER AGREEMENT POLICY PLEASE PRESS 'V'");
@@ -81,12 +148,9 @@ public class ByeFelisha {
 		if(choice_0.equals("Y") || choice_0.equals("y")) {
 			Thanks();
 		}
-		
-		
 	}
 	
-	
-	static void Agreement() {
+	public void Agreement() {
 		System.out.println("State of Texas\r\n" + 
 				"\r\n" + 
 				"Rev. 133EF48\r\n" + 
@@ -190,103 +254,92 @@ public class ByeFelisha {
 	}// END SHASHANK /// // //
 	////////////////////////
     
-/************************************  Report Spam Number AM ***********************************/
+
+////ANA Beginning/////
+class UseCase3{
+	        
 	// all reports submitted will be added to this list 
-        List<number_report> num_list = new ArrayList<> ();
-        
-        
-        
-        
-        // these if statements determine if number is eligible to be reported 
-        
-        System.out.println("Enter the number you want to report. Enter as digit string EX: 8074562314");
-        Scanner input = new Scanner(System.in);
-        String phone_number = input.nextLine();
-        
-        // determines if number is a ten digit number
-       if(phone_number.length()==10){
-       
-            System.out.println("Enter the number of calls recieved from this number");
-            Scanner input2 = new Scanner(System.in);
-            int number_of_calls = input.nextInt();
-            
-            // determined if there was more than 5 calls 
-            if(number_of_calls>=5){
-            
-                
-              //creationg of number_report object 
-              number_report rep1 = new number_report(phone_number, number_of_calls);
-              
-          
-              rep1.return_report();
-              
-              num_list.add(rep1);
-            
-            }else System.out.println("Please report only after you have"
-                    + "recived more than 5 calls from this number");
-       
-       
-       }else System.out.println("Number not valid");
-	
-	/***************************************** END OF REPORT NUMBER ***********************************/
-	
-	
-	
-	
-	
-	
-	
-    // // LIANE CODE /////////
-	////////////////////////////
-   // Author: vw-liane
+	List<number_report> num_list = new ArrayList<> ();
 
-// METHOD 
-// Description: Within ByeFelisha program system, when user chooses option 4
-//  (see <sketch-of-program.txt>) "Display Blocked Calls", program reads file
-//  created by usecase1. The file name to read is:  <user_log_blocked_calls.txt>
+	// these if statements determine if number is eligible to be reported 
+	System.out.println("Enter the number you want to report. Enter as digit string EX: 8074562314");
 
-import java.nio.file.*;
-import java.io.*;
-import java.util.stream.Stream;
-import java.util.*;  
+	Scanner input = new Scanner(System.in);
+	String phone_number = input.nextLine();
 
-class usecase5 
-{
-    // number of calls blocked from calling user
-    static int numBlock = 0; 
-    public static void main(String[] args) throws IOException
-    {
-        // find file with list of user blocked calls
-        Path path1 = Paths.get("user_log_blocked_calls.txt");
+	// determines if number is a ten digit number
+	if(phone_number.length()==10){
+   
+     System.out.println("Enter the number of calls recieved from this number");
+     Scanner input2 = new Scanner(System.in);
+     int number_of_calls = input.nextInt();
 
-        // try opening file
-        try (Stream<String> content = Files.lines(path1))
-        {
-            // do stuff with each line
-            content.forEach((String line) -> 
-            {
-                numBlock++;
-                System.out.println(line);
-            } // END CONTENT.FOREACH
-            );
-            System.out.println("These phone numbers have been blocked "
-                    + "from calling you.");
-            System.out.println("\nYou have a total of " + numBlock
-                    " blocked calls.");
-        }// END TRY STREAM   
-    } // END MAIN-USECASE-five
+     	// determined if there was more than 5 calls 
+     if(number_of_calls>=5){
 
-
-
-} // // END LIANE CODE /// /////
-	////////////////////////////
+    	 //creationg of number_report object 
+     number_report rep1 = new number_report(phone_number, number_of_calls);
+      
+     rep1.return_report();
+      
+     num_list.add(rep1);
     
-    //THIS NHI NANCY'S CODE
-    //adding scam phone numbers from blacklist to database
-    public void addScamNumber(Scanner input, List<String> AREA_CODE, List<String> SCAM_NUMBER) {
+     }
+     else System.out.println("Please report only after you have"
+        + "recived more than 5 calls from this number");
+	 }
+	 else System.out.println("Number not valid");
+}
+
+	// The report class 
+class number_report{
+    
+	 String reporter_fs;
+     String reporter_ls;
+     int number_of_calls;
+     String phone_number; 
+     
+     // report class constructor
+     number_report(String num, int call_amount){
+ 
+     phone_number = num;
+     number_of_calls = call_amount;
+    
+     System.out.println("Enter your first name:");
+     Scanner scan1 = new Scanner(System.in);
+     String f_name = scan1.nextLine();
+     reporter_fs = f_name;
+        
+     System.out.println("\nEnter your last name:");      
+     Scanner scan2 = new Scanner(System.in);
+     String l_name = scan1.nextLine();
+     reporter_ls = l_name; 
+}
+    
+     // prints the report back 
+     public void return_report(){
+ 
+    	 System.out.println("\n\nReport Summary");
+    	 System.out.println("Name of Reporter:" + reporter_fs +" "+ reporter_ls);
+    	 System.out.println("Number Reported:" + phone_number);
+    	 System.out.println("Number of Calls:" + number_of_calls);
+    	 System.out.println("\n Your report has been submitted."+ "Thank you for reporting");
+     }
+  }
+	
+}
+	
+//ANA Ending///////
+
+
+//THIS NHI NANCY'S CODE
+    //adding scam phone numbers from blacklist to database	
+ class UseCase4{
+	
+	 public void addScamNumber(Scanner input, List<String> AREA_CODE, List<String> SCAM_NUMBER) {
         while (input.hasNext()) {
             if (input.hasNextInt()) {
-                String area = String.valueOf(input.nextInt());
+                String area =  String.valueOf(input.nextInt());
                 AREA_CODE.add(String.valueOf(area));
             } // adding all the area codes from text file to the arrayList AREA_CODE
             else input.next();
@@ -305,151 +358,51 @@ class usecase5
         }
     }
     
-    //THIS IS THE END OF NANCY'S CODE
+    
+}
 	
-	
-//THIS IS JENCIE'S CODE (BEGINNING) ------------------------------------------------------------------------------------------------
-    /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package callblockermine1;
+//THIS IS THE END OF NANCY'S CODE
 
-/**
- *
- * @author jencd
- */
-import java.io.File;  // Import the File class
-import java.io.FileNotFoundException;  // Import this class to handle errors
-import java.util.Scanner; // Import the Scanner class to read text files
-import java.io.*;    // for File
-import java.util.*;  // for Scanner
+ 
 
-public class CallBlockerMine1
+ // // LIANE CODE /////////
+	////////////////////////////
+// Author: vw-liane
+
+//METHOD 
+//Description: Within ByeFelisha program system, when user chooses option 4
+//(see <sketch-of-program.txt>) "Display Blocked Calls", program reads file
+//created by usecase1. The file name to read is:  <user_log_blocked_calls.txt>
+
+class UseCase5 
 {
+    // number of calls blocked from calling user
+     int numBlock = 0; 
+     void method5()throws IOException
+     {
+        // find file with list of user blocked calls
+        Path path1 = Paths.get("user_log_blocked_calls.txt");
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) throws Exception
-    {
-        String string;
-        int lineNumber = 0;
-        int phoneNumber;
-        
-        // TODO code application logic here
-        File file = new File("C:\\Users\\jencd\\Documents\\Jencie Daniel1\\Texas Tech University\\Software Engineering I\\"
-                + "Call Blocker\\CallBlockerMine1\\Numbers.txt");
-        
-       BufferedReader reader = new BufferedReader(new FileReader(file));
-       
-       while ((string = reader.readLine()) != null)
-       {
-           lineNumber++;
-           
-           
-       }
-        Scanner input = new Scanner(System.in);
-        Scanner sc = new Scanner(file); 
-  
- //   while (sc.hasNextLine()) 
-  //    System.out.println(sc.nextLine()); 
-    
-    System.out.println("");
-    System.out.print("Enter the phone number to check if it is a spam number that is our system: ");
-    int number = input.nextInt();
-    
-    
-      int x = 3;
-    int counter = 0;
-
-    // Read all the numbers in the file, and count how many times x appears.
-   // while(sc.hasNextInt()) 
-    {
-        int list = sc.nextInt();
-        if(list == number)
+        // try opening file
+        try (Stream<String> content = Files.lines(path1))
         {
-            System.out.println("Call is a scam. Call Blocked.");
-        }
-        
-        else if (list != number)
-        {
-            System.out.println("Number is not in the system, call is not blocked.");
-        }
-                
-    }
+            // do stuff with each line
+            content.forEach((String line) -> 
+            {
+                numBlock++;
+                System.out.println(line);
+            } // END CONTENT.FOREACH
+            );
+            System.out.println("These phone numbers have been blocked "
+                    + "from calling you.");
+            System.out.println("\nYou have a total of " + numBlock+
+                    " blocked calls.");
+        }// END TRY STREAM   
+     } // END MAIN-USECASE-five
+}
+}
+ // // END LIANE CODE /// /////
+	////////////////////////////
     
-  /*  while(sc.hasNextInt()) 
-    {
-      //  int number = input.nextInt();
-        if(number == )
-            counter++;
-    }*/
-
    
-        
-    }
-}
-    //THIS IS THE END OF JENCIE'S CODE--------------------------------------------------------------------------------------------
-    
-}
- 
-    
-}
- 
-/************************* The Report Class: Part of Reporting *********************/
-// The report class 
-class number_report{
-    
-    
-    String reporter_fs;
-    String reporter_ls;
-    int number_of_calls;
-    String phone_number; 
-    
-
-// report class constructor
-    
- number_report(String num, int call_amount){
- 
-    phone_number = num;
-    
-    number_of_calls = call_amount;
-    
-      System.out.println("Enter your first name:");
-      Scanner scan1 = new Scanner(System.in);
-            String f_name = scan1.nextLine();
-           reporter_fs = f_name;
-            
-            
-     
-     System.out.println("\nEnter your last name:");      
-     Scanner scan2 = new Scanner(System.in);
-            String l_name = scan1.nextLine();
-            reporter_ls = l_name; 
-
-
- }
-    
-// prints the report back 
- void return_report(){
- 
- 
-     System.out.println("\n\nReport Summary");
-    System.out.println("Name of Reporter:" + reporter_fs +" "+ reporter_ls);
-    System.out.println("Number Reported:" + phone_number);
-    System.out.println("Number of Calls:" + number_of_calls);
-    System.out.println("\n Your report has been submitted."
-            + "Thank you for reporting");
-   
- 
- 
- }
- 
-  
-
-
-
-
-}
+	
