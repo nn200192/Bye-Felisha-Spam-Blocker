@@ -10,6 +10,8 @@ public class ByeFelishaMainProgram{
     public static void main(String[] args) throws FileNotFoundException {
         
     	File areaCode = new File("areaCode.txt"); //list of area codes and the U.S. state associated with the code
+        File oFile = new File("ScamNumber.txt"); //will output scam numbers to this file
+        PrintStream output = new PrintStream(oFile);
         Scanner input = new Scanner (areaCode);
         List<String> AREA_CODE = new ArrayList<>(); //will push all the area codes from text file to this arraylist
         List<String> SCAM_NUMBER = new ArrayList<>(); //this list will hold all the random scam phone numbers
@@ -25,8 +27,8 @@ public class ByeFelishaMainProgram{
         //UseCase3 byeFelisha3 = new UseCase3();
         
         
-        UseCase4 byeFelisha4 = new UseCase4();
-        byeFelisha4.addScamNumber(input, AREA_CODE, SCAM_NUMBER);
+        UseCase4 byeFelisha = new UseCase4();
+        byeFelisha.addScamNumber(input, AREA_CODE, SCAM_NUMBER, output);
         
         UseCase5 byeFelisha5 = new UseCase5();
         byeFelisha5.method5();
