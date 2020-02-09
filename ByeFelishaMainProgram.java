@@ -1,6 +1,6 @@
 import java.io.*;    // for File
 import java.util.*;  // for Scanner
-import java.nio.file.*;
+import java.io.File.*;
 import java.util.stream.Stream;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
@@ -52,8 +52,10 @@ class UseCase1{
 	public void method1()throws FileNotFoundException, IOException
     {
 		String string;
-		int lineNumber = 0;
-		int phoneNumber;
+        	String number;
+        	int lineNumber = 0;
+        	double phoneNumber;
+        	int count = 0;
     
 		// TODO code application logic here
 		File file = new File("Numbers.txt");
@@ -61,33 +63,73 @@ class UseCase1{
 		BufferedReader reader = new BufferedReader(new FileReader(file));
    
 		while ((string = reader.readLine()) != null)
-		{
-           lineNumber++;
-        }
-        Scanner input = new Scanner(System.in);
-        Scanner sc = new Scanner(file); 
+       		{
+          		lineNumber++;
+           
+       		}
+       		Scanner input = new Scanner(System.in);
+        	Scanner sc = new Scanner(file); 
+		
+		//while (sc.hasNextLine()) 
+  			//System.out.println(sc.nextLine());
+  
         
         System.out.println("");
         System.out.print("Enter the phone number to check if it is a spam number that is our system: ");
-        int number = input.nextInt();
+        	number = input.nextLine(); 
         
-        int x = 3;
-        int counter = 0;
-
-        // Read all the numbers in the file, and count how many times x appears.
-        // while(sc.hasNextInt()) 
-    
-        int list = sc.nextInt();
-        if(list == number)
-        {
-            System.out.println("Call is a scam. Call Blocked.");
-        }
+        for (int i = 0, len = number.length(); i < len; i++) 
+     	{
+        	if (Character.isDigit(number.charAt(i))) 
+        	{
+            	count++;
+        	}
+     	}
+     
+  
+    	while(sc.hasNextLine() == true) 
+    	{
+        	String list = sc.nextLine();
+        	if((list).equals(number) && count == 10)
+        	{
+            		System.out.println("Call is a scam. Call Blocked.");
+            		break;
+        	}
         
-        else if (list != number)
-        {
-            System.out.println("Number is not in the system, call is not blocked.");
-        }
+        	else if (sc.hasNextLine() == false && count == 10)
+        	{
+            		System.out.println("Number is not in the system, call is not blocked.");
+        	}
+        
+        	else if(count != 10)
+        	{
+            		System.out.println("Invalid Number.");
+            		break;
+        	}
                 
+    	} 
+/*	try
+        {
+        	if(count != 10)
+         	{
+                 	while(number != "")
+                	{       
+                     		for (int i = 0, len = number.length(); i < len; i++) 
+                     		{
+                        		if (Character.isDigit(number.charAt(i))) 
+                        		{
+                            			count++;
+                        		}
+                    		}
+                	}
+            	}
+        }
+	
+    catch(InputMismatchException e)
+            {
+                System.out.println("Invalid number, the value you entered has: " + e.getMessage());
+            }
+*/
     }
 }
 //THIS IS THE END OF JENCIE'S CODE--------------------------------------------------------------------------------------------
