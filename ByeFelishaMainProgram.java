@@ -19,10 +19,17 @@ public class ByeFelishaMainProgram{
         UseCase1 byeFelisha1 = new UseCase1();
         byeFelisha1.method1();
         
+	Audio audio = new Audio();
         UseCase2 byeFelisha2 = new UseCase2();
         byeFelisha2.Felisha();
+	audio.playSound("welcome.wav");
+	Thread.sleep(2000);
         byeFelisha2.Prompt();
-        byeFelisha2.Policy();
+        Thread.sleep(1000);
+	audio.playSound("license.wav");
+	byeFelisha2.Policy();
+	audio.playSound("namenumber.wav");
+	 //Thread.sleep(1000);
         
         //UseCase3 byeFelisha3 = new UseCase3();
         
@@ -295,7 +302,27 @@ class UseCase2 {
 				"supersedes all prior understandings of Licensor and Licensee, including any prior representation,\r\n" + 
 				"statement, condition, or warranty with respect to the subject matter of this EULA.\r\n" + 
 				"");
-	}// END SHASHANK /// // //
+	}
+	class Audio{
+		public static void playSound(String songname)
+		{
+			try
+			{
+				AudioInputStream audioInputStream = 
+				AudioSystem.getAudioInputStream(new File(songname).getAbsoluteFile());
+				Clip clip = AudioSystem.getClip();
+				clip.open(audioInputStream);
+				clip.start();
+			}
+			catch(Exception ex)
+			{
+				System.out.println("Error with playing sound.");
+				ex.printStackTrace();
+    			}
+		}
+	}
+	
+	// END SHASHANK /// // //
 	////////////////////////
     
 
