@@ -1,0 +1,58 @@
+ */
+package byefelishamainprogram;
+
+import java.io.*;    // for File
+import java.util.*;  // for Scanner
+
+
+//here is our main program
+public class ByeFelishaMainProgram{
+    public static void main(String[] args){
+        
+        int userchoice = 0;
+        
+        while(userchoice!=4){
+        
+            
+       Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+        System.out.println("Please enter number corresponding to your choice from the following menu:\n"
+                + "1) Register to ByeFelicia Spam Blocker\n"
+                + "2) Report Spam Number\n"
+                + "3) Display Blocked Calls\n"
+                + "4) Quit Program");
+
+         userchoice = myObj.nextInt();  // Read user input
+        
+       
+         switch(userchoice) {
+            case 1:
+                    // Enter register code
+                break;
+            case 2:
+                    // Enter Report Spam
+                 break;
+          
+            case 3:
+                    // Enter Display Blocked call code
+                 break;    
+            case 4: 
+                
+               userchoice = 4; 
+                 
+               break;    
+       
+            default:
+    // code block
+                        } // switch case
+         
+         
+         
+         
+ 
+        } // while loop 
+        
+    }// end of public function 
+    
+    
+    
+}// End of main c
