@@ -7,7 +7,7 @@ import java.util.Scanner; // Import the Scanner class to read text files
 
 //here is our main program
 public class ByeFelishaMainProgram{
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException, InterruptedException {
         
     	File areaCode = new File("areaCode.txt"); //list of area codes and the U.S. state associated with the code
         File oFile = new File("ScamNumber.txt"); //will output scam numbers to this file
