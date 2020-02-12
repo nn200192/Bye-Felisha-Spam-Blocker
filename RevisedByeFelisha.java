@@ -53,16 +53,23 @@ public class ByeFelishaMainProgram{
 				case 1:
 					/// REGISTER USER
 					Audio audio = new Audio();
-       	 				UseCase2 byeFelisha2 = new UseCase2();
+       	 				
+					UseCase2 byeFelisha2 = new UseCase2();
         				byeFelisha2.Felisha();
-					audio.playSound("welcome.wav");
+					
+        				audio.playSound("welcome.wav");
 					Thread.sleep(2000);
-        				byeFelisha2.Prompt();
+        				
+					audio.playSound("namenumber.wav");
+					byeFelisha2.Prompt();
         				Thread.sleep(1000);
+					
 					audio.playSound("license.wav");
 					byeFelisha2.Policy();
-					audio.playSound("namenumber.wav");
-					break;
+					Thread.sleep(2000);
+					
+					audio.playSound("agree.wav");
+					byeFelisha2.Policy_Accept();
 				case 2:
 					// Enter Report Spam
 					break;
