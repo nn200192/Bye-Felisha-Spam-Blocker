@@ -183,28 +183,7 @@ class UseCase1{
         	}
                 
     	} 
-/*	try
-        {
-        	if(count != 10)
-         	{
-                 	while(number != "")
-                	{       
-                     		for (int i = 0, len = number.length(); i < len; i++) 
-                     		{
-                        		if (Character.isDigit(number.charAt(i))) 
-                        		{
-                            			count++;
-                        		}
-                    		}
-                	}
-            	}
-        }
-	
-    catch(InputMismatchException e)
-            {
-                System.out.println("Invalid number, the value you entered has: " + e.getMessage());
-            }
-*/
+
     }
 }
 //THIS IS THE END OF JENCIE'S CODE--------------------------------------------------------------------------------------------
