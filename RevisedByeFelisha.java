@@ -30,15 +30,7 @@ public class ByeFelishaMainProgram{
 		byeFelisha.addScamNumber(input, AREA_CODE, SCAM_NUMBER, output);
 
 
-        
-
-        
-        //UseCase3 byeFelisha3 = new UseCase3();
-        
-        
-
-        
-
+     
 
 		int userchoice = 0;
 
