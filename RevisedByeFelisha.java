@@ -268,6 +268,16 @@ class UseCase2 {
 			Thanks();
 		}
 	}
+	public void Policy_Accept() {
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("\n\n\t\t\tPLEASE READ OUR AGREEMENT POLICY CAREFULLY.\nIF YOU ACCEPT OUR POLICY , PRESS 'Y'");
+		String choice_0 = in.nextLine();
+
+		if (choice_0.equals("Y") || choice_0.equals("y")) {
+			Thanks();
+		}
+	}
 
 	public void Agreement() {
 		System.out.println("State of Texas\r\n" +
