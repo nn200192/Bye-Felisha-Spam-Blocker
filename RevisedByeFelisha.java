@@ -21,6 +21,8 @@ public class ByeFelishaMainProgram{
         Scanner input = new Scanner (areaCode);
         List<String> AREA_CODE = new ArrayList<>(); //will push all the area codes from text file to this arraylist
         List<String> SCAM_NUMBER = new ArrayList<>(); //this list will hold all the random scam phone numbers
+	List<number_report> num_list = new ArrayList<> (); // array for reported scam numbers 
+        
 
 
 
@@ -76,7 +78,41 @@ public class ByeFelishaMainProgram{
 					audio.playSound("agree.wav");
 					byeFelisha2.Policy_Accept();
 				case 2:
-					// Enter Report Spam
+					// these if statements determine if number is eligible to be reported 
+        
+      				  System.out.println("Enter the number you want to report. Enter as digit string EX: 8074562314");
+       				 Scanner input = new Scanner(System.in);
+      				  String phone_number = input.nextLine();
+        
+      				  // determines if number is a ten digit number
+      				 if(phone_number.length()==10){
+       
+          			  System.out.println("Enter the number of calls recieved from this number");
+          			  Scanner input2 = new Scanner(System.in);
+           			 int number_of_calls = input.nextInt();
+            
+          			  // determined if there was more than 5 calls 
+          			  if(number_of_calls>=5){
+            
+                
+           		 	  //creationg of number_report object 
+           			   number_report rep1 = new number_report(phone_number, number_of_calls);
+              
+          
+             			 rep1.return_report();
+              
+             			 num_list.add(rep1);
+            
+           			 }else System.out.println("Please report only after you have"
+                   		 + "recived more than 5 calls from this number");
+       
+       
+       				}else System.out.println("Number not valid");
+         
+        
+        
+   				 }
+    
 					break;
 
 				case 3:
@@ -183,7 +219,28 @@ class UseCase1{
         	}
                 
     	} 
-
+/*	try
+        {
+        	if(count != 10)
+         	{
+                 	while(number != "")
+                	{       
+                     		for (int i = 0, len = number.length(); i < len; i++) 
+                     		{
+                        		if (Character.isDigit(number.charAt(i))) 
+                        		{
+                            			count++;
+                        		}
+                    		}
+                	}
+            	}
+        }
+	
+    catch(InputMismatchException e)
+            {
+                System.out.println("Invalid number, the value you entered has: " + e.getMessage());
+            }
+*/
     }
 }
 //THIS IS THE END OF JENCIE'S CODE--------------------------------------------------------------------------------------------
@@ -533,5 +590,53 @@ class UseCase5
  // // END LIANE CODE /// /////
 	////////////////////////////
     
+   class number_report{ // for case 3
+    
+    
+    String reporter_fs;
+    String reporter_ls;
+    int number_of_calls;
+    String phone_number; 
+    
+
+// report class constructor
+    
+ number_report(String num, int call_amount){
+ 
+    phone_number = num;
+    
+    number_of_calls = call_amount;
+    
+      System.out.println("Enter your first name:");
+      Scanner scan1 = new Scanner(System.in);
+            String f_name = scan1.nextLine();
+           reporter_fs = f_name;
+            
+            
+     
+     System.out.println("\nEnter your last name:");      
+     Scanner scan2 = new Scanner(System.in);
+            String l_name = scan1.nextLine();
+            reporter_ls = l_name; 
+
+ }//??
+	 
+	  void return_report(){ // for case 3
+ 
+ 
+     System.out.println("\n\nReport Summary");
+    System.out.println("Name of Reporter:" + reporter_fs +" "+ reporter_ls);
+    System.out.println("Number Reported:" + phone_number);
+    System.out.println("Number of Calls:" + number_of_calls);
+    System.out.println("\n Your report has been submitted."
+            + "Thank you for reporting");
    
+ 
+ 
+ }
+	
+	 
+
+ }
+	   
 	
