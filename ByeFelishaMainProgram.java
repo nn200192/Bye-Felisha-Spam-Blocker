@@ -27,7 +27,6 @@ public class ByeFelishaMainProgram{
 		UseCase4 byeFelisha = new UseCase4();
 		byeFelisha.addScamNumber(input, AREA_CODE, SCAM_NUMBER, output);
 
-
 		int userchoice = 0;
 
 		while(userchoice!=4){
