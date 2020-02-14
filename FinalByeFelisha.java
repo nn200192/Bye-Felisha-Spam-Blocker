@@ -166,44 +166,44 @@ class UseCase1{
 		int count = 0;
 
 		// TODO code application logic here
-		File file = new File("ScamNumber.txt");
+		File file = new File("ScamNumber.txt");          //referencing the text file with the list of scam numbers
 
 		BufferedReader reader = new BufferedReader(new FileReader(file));
 
-		while ((string = reader.readLine()) != null)
+		while ((string = reader.readLine()) != null)    //read each line in the list of scam numbers
 		{
-			lineNumber++;
+			lineNumber++;		//as long as there is another line/number to read, increment lineNumber
 
 		}
 		Scanner input = new Scanner(System.in);
 		Scanner sc = new Scanner(file);
 
-		//while (sc.hasNextLine())
-		//System.out.println(sc.nextLine());
+		//while (sc.hasNextLine())                 //while there is another line/number to read in the list
+		//System.out.println(sc.nextLine());          //print out that list
 
 
 		System.out.println("");
-		System.out.print("Enter the phone number to check if it is a spam number that is our system: ");
-		number = input.nextLine();
-		number = number.trim();
+		System.out.print("Enter the phone number to check if it is a spam number that is our system: "); //asking for user input
+		number = input.nextLine();        //taking the user input
+		number = number.trim();      //take out all the spaces out of the uder input, if any
 
-		for (int i = 0, len = number.length(); i < len; i++)
+		for (int i = 0, len = number.length(); i < len; i++) //increment the length of the number entered based on how many values it has
 		{
-			if (Character.isDigit(number.charAt(i)))
+			if (Character.isDigit(number.charAt(i)))    //if the next character in the user input is a number
 			{
-				count++;
+				count++;                           //increment the count 
 			}
 		}
 
 
-		while(sc.hasNextLine() == true)
+		while(sc.hasNextLine() == true)            //as long as there is a next line to read
 		{
-			String list = sc.nextLine();
-			if((list).equals(number.trim()) && count == 10)
+			String list = sc.nextLine();             //read the next line 
+			if((list).equals(number.trim()) && count == 10) //if a number in the list matches the number the user input and the number of digits is exactly 10 digits
 			{
-				System.out.println("Call is a scam. Call Blocked.");
+				System.out.println("Call is a scam. Call Blocked.");     //let the user know if the number is a scam
 				//PrintStream output = new PrintStream("user_log_blocked_calls.txt");
-				FileWriter output = new FileWriter("user_log_blocked_calls.txt", true);
+				FileWriter output = new FileWriter("user_log_blocked_calls.txt", true);  //writing the number to the file to block
 				BufferedWriter bufferedWriter = new BufferedWriter(output);
 				bufferedWriter.write(number + "\n" );
 				bufferedWriter.close();
@@ -212,40 +212,19 @@ class UseCase1{
 				break;
 			}
 
-			else if (sc.hasNextLine() == false && count == 10)
+			else if (sc.hasNextLine() == false && count == 10)  //if there are no more numbers/lines to read and the nuber of digits  in the user input is exactly 10
 			{
-				System.out.println("Number is not in the system, call is not blocked.");
+				System.out.println("Number is not in the system, call is not blocked.");  //inform the user that the call is not in the system and not blocked
 			}
 
-			else if(count != 10)
+			else if(count != 10)        //if the number of digits in the user input is not equal to 10
 			{
-				System.out.println("Invalid Number.");
+				System.out.println("Invalid Number."); //tell the user that it is an invalid number, handles alphabet, and other invalid inputs
 				break;
 			}
 
 		}
-/*	try
-        {
-        	if(count != 10)
-         	{
-                 	while(number != "")
-                	{
-                     		for (int i = 0, len = number.length(); i < len; i++)
-                     		{
-                        		if (Character.isDigit(number.charAt(i)))
-                        		{
-                            			count++;
-                        		}
-                    		}
-                	}
-            	}
-        }
 
-    catch(InputMismatchException e)
-            {
-                System.out.println("Invalid number, the value you entered has: " + e.getMessage());
-            }
-*/
 	}
 }
 //THIS IS THE END OF JENCIE'S CODE--------------------------------------------------------------------------------------------
