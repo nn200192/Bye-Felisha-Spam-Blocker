@@ -64,7 +64,7 @@ public class ByeFelishaMainProgram{
 					audio.playSound("agree.wav");
 					byeFelisha2.Policy_Accept();
 				case 2:
-					// these if statements determine if number is eligible to be reported
+					// Users can report a scam number (Use Case 3)
 
 					System.out.println("Enter the number you want to report. Enter as digit string EX: 8074562314");
 					Scanner input0 = new Scanner(System.in);
@@ -96,6 +96,7 @@ public class ByeFelishaMainProgram{
 					for(number_report i: num_list){
 						System.out.println(i.phone_number);
 					}
+					
 					break;
 				case 3:
 					/// DISPLAY BLOCKED CALLS
@@ -493,8 +494,8 @@ class number_report {
 		String l_name = scan1.nextLine();
 		reporter_ls = l_name;
 
-	}//??
-	// for case 3
+	}
+	
 	void return_report() { 
 
 		System.out.println("\n\nReport Summary");
@@ -502,7 +503,7 @@ class number_report {
 		System.out.println("Number Reported:" + phone_number);
 		System.out.println("Number of Calls:" + number_of_calls);
 		System.out.println("\n Your report has been submitted."
-				+ "Thank you for reporting");
+				+ " Thank you for reporting");
 
 
 	}
