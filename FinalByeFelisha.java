@@ -63,6 +63,7 @@ public class ByeFelishaMainProgram{
 
 					audio.playSound("agree.wav");
 					byeFelisha2.Policy_Accept();
+					break;
 				case 2:
 					// Users can report a scam number (Use Case 3)
 
