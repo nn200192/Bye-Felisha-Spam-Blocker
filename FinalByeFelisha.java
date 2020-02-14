@@ -13,6 +13,7 @@ import javax.sound.sampled.Clip;
 
 //here is our main program
 public class ByeFelishaMainProgram{
+	// BEGIN MAIN ////
 	public static void main(String[] args) throws FileNotFoundException, IOException,InterruptedException, NoSuchElementException {
 
 		File areaCode = new File("areaCode.txt"); //list of area codes and the U.S. state associated with the code
@@ -23,33 +24,24 @@ public class ByeFelishaMainProgram{
 		List<String> SCAM_NUMBER = new ArrayList<>(); //this list will hold all the random scam phone numbers
 		List<number_report> num_list = new ArrayList<> (); // array for reported scam numbers
 
-
 		UseCase4 byeFelisha = new UseCase4();
 		byeFelisha.addScamNumber(input, AREA_CODE, SCAM_NUMBER, output);
-
-
-
-
-
-
 
 
 		int userchoice = 0;
 
 		while(userchoice!=4){
-
-
-			Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+			// Create a Scanner object
+			Scanner myObj = new Scanner(System.in);  
 			System.out.println("Please enter number corresponding to your choice from the following menu:\n"
 					+ "1) Register to ByeFelisha Spam Blocker\n"
 					+ "2) Report Spam Number\n"
 					+ "3) Display Blocked Calls\n"
 					+ "4) Check for Scam\n" +
 					" \nEnter 0 to Exit");
-
-			userchoice = myObj.nextInt();  // Read user input
-
-
+			// Read user input
+			userchoice = myObj.nextInt();  
+			
 			switch(userchoice) {
 				case 1:
 					/// REGISTER USER
@@ -88,33 +80,23 @@ public class ByeFelishaMainProgram{
 						// determined if there was more than 5 calls
 						if(number_of_calls>=5){
 
-
 							//creationg of number_report object
 							number_report rep1 = new number_report(phone_number, number_of_calls);
 
-
 							rep1.return_report();
-
 							num_list.add(rep1);
 
 						}else System.out.println("Please report only after you have"
 								+ " recived more than 5 calls from this number");
 
-
 					}else System.out.println("Number not valid");
-
 
 					System.out.println(" Numbers Reported So Far");
 
 					for(number_report i: num_list){
-
 						System.out.println(i.phone_number);
-
 					}
-
-
 					break;
-
 				case 3:
 					/// DISPLAY BLOCKED CALLS
 					UseCase5 byeFelisha5 = new UseCase5();
@@ -126,7 +108,6 @@ public class ByeFelishaMainProgram{
 					byeFelisha1.method1();
 
 					userchoice = 0;
-
 					break;
 
 				default:
@@ -134,24 +115,11 @@ public class ByeFelishaMainProgram{
 			} // switch case
 
 		} // while loop
-
-
-
-
-
-
 	}
-}
+}  // END MAIN /////
 
 
 //THIS IS JENCIE'S CODE (BEGINNING) ------------------------------------------------------------------------------------------------
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-//package callblockermine1;
-
 /**
  *
  * @author jencd
@@ -449,9 +417,7 @@ class UseCase4 {
 			output.println(numberGenerated.trim());
 			SCAM_NUMBER.add(numberGenerated.trim()); //add the full 9-digit number to this list, this is considered the database blacklist we are going to use
 		}
-
 	}
-
 }
 
 //THIS IS THE END OF NANCY'S CODE
@@ -463,9 +429,10 @@ class UseCase4 {
 // Author: vw-liane
 
 //METHOD
-//Description: Within ByeFelisha program system, when user chooses option 4
-//(see <sketch-of-program.txt>) "Display Blocked Calls", program reads file
-//created by usecase1. The file name to read is:  <user_log_blocked_calls.txt>
+// Description: Within ByeFelisha program system, when user chooses option 3
+// "Display Blocked Calls", program reads file modified by usecase1.
+// The file name to read is:  <user_log_blocked_calls.txt>
+// Output: Each line of file is printed to screen. Each number on each line.
 
 class UseCase5
 {
@@ -498,9 +465,8 @@ class UseCase5
 ////////////////////////////
 
 
-
-
-class number_report { // for case 3
+/// FOR USECASE 3
+class number_report {
 
 
 	String reporter_fs;
@@ -510,7 +476,6 @@ class number_report { // for case 3
 
 
 // report class constructor
-
 	public number_report(String num, int call_amount) {
 
 		phone_number = num;
@@ -529,9 +494,8 @@ class number_report { // for case 3
 		reporter_ls = l_name;
 
 	}//??
-
-	void return_report() { // for case 3
-
+	// for case 3
+	void return_report() { 
 
 		System.out.println("\n\nReport Summary");
 		System.out.println("Name of Reporter:" + reporter_fs + " " + reporter_ls);
