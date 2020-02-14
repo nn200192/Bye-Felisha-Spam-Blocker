@@ -432,41 +432,7 @@ class Audio{
 //////////////////////////////////
 
 ////ANA Beginning/////
-class UseCase3{
-	        
-	// all reports submitted will be added to this list 
-	List<number_report> num_list = new ArrayList<> ();
 
-	public void usecase3() { //nancy debug
-		// these if statements determine if number is eligible to be reported
-		System.out.println("Enter the number you want to report. Enter as digit string EX: 8074562314");
-
-		Scanner input = new Scanner(System.in);
-		String phone_number = input.nextLine();
-
-		// determines if number is a ten digit number
-		if (phone_number.length() == 10) {
-
-			System.out.println("Enter the number of calls recieved from this number");
-			Scanner input2 = new Scanner(System.in);
-			int number_of_calls = input.nextInt();
-
-			// determined if there was more than 5 calls
-			if (number_of_calls >= 5) {
-
-				//creationg of number_report object
-				number_report rep1 = new number_report(phone_number, number_of_calls);
-
-				rep1.return_report();
-
-				num_list.add(rep1);
-
-			} else System.out.println("Please report only after you have"
-					+ "recived more than 5 calls from this number");
-		} else System.out.println("Number not valid");
-
-	} //nancy debug
-}
 
 	// The report class 
 class number_report{
@@ -630,5 +596,6 @@ class UseCase5
 	 
 
  }
+}
 	   
 	
